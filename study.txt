@@ -1,0 +1,52 @@
+document.documentElement.setAttribute('data-theme', 'light')
+
+  1. document.documentElement
+  - DOM 트리 상단의 노드들은 document가 제공하는 프로퍼티를 사용해 접근할 수 있다
+  <html> : document.documentElement
+  <body> : document.body
+  <head> : document.head
+
+  2. Element.setAttribute('속성키', '속성값')
+  - 선택한 요소의 속성값을 정한다
+
+  3. 데이터 속성('data-xxx')
+  - HTML5부터 데이터 속성 도입
+  - 특정 데이터를 DOM 요소에 저장할 수 있다.
+  - 데이터 속성은 'data-'로 시작해야 되며, 브라우저는 데이터 속성에는 어떠한 행동도 관여하지 않는다
+  - 개발자가 요소에 특정 데이터를 저장하고 싶을 경우 자유롭게 사용할 수 있다
+  - 데이터 속성은 HTML 속성이므로 CSS에서도 접근할 수 있다.
+
+---------------------------------------------------------------------------------------
+
+CSS 커스텀 속성 & 속성 선택자
+
+/* light mode */
+:root {
+  --primary-color: rgb(255, 92, 92);
+  --primary-variant: #ff2d2d;
+  --secondary-color: #1b9999;
+  --on-primary: rgb(250, 250, 250);
+  --on-background: rgb(66, 66, 66);
+  --on-background-alt: rgba(66, 66, 66, 0.7);
+  --background: rgb(255, 255, 255);
+  --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+}
+/* dark mode */
+[data-theme="dark"] {
+  --primary-color: rgb(150, 65, 255);
+  --primary-variant: #6c63ff;
+  --secondary-color: #03dac5;
+  --on-primary: #000;
+  --on-background: rgba(255, 255, 255, 0.9);
+  --on-background-alt: rgba(255, 255, 255, 0.7);
+  --background: #121212;
+}
+
+  CSS 커스텀 속성
+    - 사용자 지정 속성은 CSS 저작자가 정의하는 개체로, 문서 전반적으로 재사용할 임의의 값을 담습니다.
+    - 전용 표기법 : (--main-color: black;)
+    - 접근 방법: var()함수 사용 (color: var(--main-color);)
+
+  CSS 속성 선택자 [data-theme="dark"]
+  - HTML 태그의 속성명과 속성값을 선택자로 지정할 수 있는 기능
+
